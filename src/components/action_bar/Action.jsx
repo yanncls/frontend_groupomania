@@ -27,13 +27,13 @@ const Action = () => {
           <div className="post-btn_video">
             <button id="video">
               <img src={VideoLogo} alt="VideoLogo" />
-              Video
+              Vidéo
             </button>
           </div>
           <div className="post-btn_article">
             <button id="article">
               <img src={ArticleLogo} alt="ArticleLogo" />
-              Thread
+              Article
             </button>
           </div>
         </div>

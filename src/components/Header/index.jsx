@@ -15,6 +15,7 @@ const Navbar = () => {
       <div className="navlinks">
         <Link to="/dashboard" style={{ padding: "10px" }}>
           <img src={HomeLogo} alt="home" />
+          Acceuil
         </Link>
         <Link to="/Profil" style={{ padding: "10px" }}>
           <img src={ProfileLogo} alt="profile" />

@@ -1,93 +1,92 @@
 .post-btn {
-    display: flex;
-    justify-content: space-around;
-    padding-top: 1rem;
-    #image #article #video {
-        border: none;
-        }
-    button {
-        border: solid 1px white;
-        border-radius: 20px;
-        background: #4E5166;
-        color: white;
-        font-weight: bold;
-        height: 2rem;
-    }
-    img {
-        width: 2rem;
-        
-    }
+  display: flex;
+  justify-content: space-around;
+  padding-top: 1rem;
+  #image #article #video {
+    border: none;
+  }
+  button {
+    border: solid 1px white;
+    border-radius: 20px;
+    background: #4e5166;
+    color: white;
+    font-weight: bold;
+    height: 2rem;
+  }
+  img {
+    width: 2rem;
+  }
+  :hover {
+    transform: scale(1.05);
+    transition: 55ms;
+  }
 }
 
-::placeholder { /* Chrome, Firefox, Opera, Safari 10.1+ */
-    color: white;
-    opacity: 1; /* Firefox */
-    font-weight: bold;
+::placeholder {
+  /* Chrome, Firefox, Opera, Safari 10.1+ */
+  color: white;
+  opacity: 1; /* Firefox */
+  font-weight: bold;
 }
 
 input {
-    background:#9396ab;
+  background: #9396ab;
 }
 
-
-
 button#article {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    height: 4rem important;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 4rem important;
 }
 
 button#image {
-    display: flex;
-    justify-content: center;
-    align-items: center;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
 button#video {
-    display: flex;
-    justify-content: center;
-    align-items: center;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
-
 .post-btn_image {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    width: 5rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 5rem;
 }
 
 .post-btn_video {
-
 }
 
 .post-btn_article {
-
 }
 
 form {
-    display: flex;
-    width: 80%;
+  display: flex;
+  width: 80%;
 }
 
 .PostBar {
-    display: flex;
-    justify-content: space-evenly;
-    height: 12rem;
-    align-items: center;
+  display: flex;
+  justify-content: space-evenly;
+  height: 12rem;
+  align-items: center;
 }
 
 .image-cropper {
-    width: 100px;
-    height: 100px;
-    position: relative;
-    overflow: hidden;
-    border-radius: 50%;
+  width: 100px;
+  height: 100px;
+  position: relative;
+  overflow: hidden;
+  border-radius: 50%;
 }
 
 .profile-pic {
-    display: inline;
+  display: inline;
   margin: 0 auto;
   margin-left: -25%; //centers the image
   height: 100%;

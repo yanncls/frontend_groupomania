@@ -13,12 +13,14 @@ const Profile = () => {
         </div>
       </div>
       <div className="attribut">
-        <h3>Nom et prénom</h3>
-        <h4>Bio</h4>
+        <h3>Fabien Olicard</h3>
+        <h4>
+          Lorem ipsum dolor sit amet, consectetur adipisicing elit. Error animi.
+        </h4>
       </div>
       <div className="my-profile">
         <Link to="/Profil" style={{ padding: "10px" }}>
-          Mon profile
+          Mon profil
         </Link>
       </div>
     </div>

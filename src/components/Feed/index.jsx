@@ -10,8 +10,8 @@ const Feed = () => {
           <img src={FaceProfile} alt="visage" className="post-profile-pic" />
         </div>
         <div className="post-author">
-          <h3>Pseudo</h3>
-          <p>2 hours ago</p>
+          <h3>Pascaline Hartmann</h3>
+          <p>Il y a 2 heures</p>
         </div>
       </div>
       <div className="post-container">
@@ -22,7 +22,9 @@ const Feed = () => {
           voluptatibus nemo, recusandae nihil.
         </div>
         <div className="post-like-btn">
-          <img src={LikeBtn} alt="like" />
+          <button>
+            <img src={LikeBtn} alt="like" />
+          </button>
           <p>0</p>
         </div>
       </div>

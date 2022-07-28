@@ -10,24 +10,28 @@
   border-radius: 10px 10px 0px 0px;
 }
 
-
 .attribut {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  h4 {
     display: flex;
-    flex-direction: column;
-    align-items: center;
+    justify-content: center;
+    margin: 1rem;
+  }
 }
 
 .image-cropper-top {
-    width: 100px;
-    height: 100px;
-    position: relative;
-    overflow: hidden;
-    border-radius: 50%;
-    top: -3rem;
+  width: 100px;
+  height: 100px;
+  position: relative;
+  overflow: hidden;
+  border-radius: 50%;
+  top: -3rem;
 }
 
 .profile-pic {
-    display: inline;
+  display: inline;
   margin: 0 auto;
   margin-left: -25%; //centers the image
   height: 100%;
@@ -37,12 +41,12 @@
 .my-profile {
   display: flex;
   justify-content: center;
-  border-top: solid 1px #FFD7D7;
+  border-top: solid 1px #ffd7d7;
   align-items: center;
   height: 5rem;
-    a {
-      text-decoration: none;
-      color: red;
-      font-weight: bolder;
-    }
+  a {
+    text-decoration: none;
+    color: #ffd7d7;
+    font-weight: bolder;
+  }
 }
