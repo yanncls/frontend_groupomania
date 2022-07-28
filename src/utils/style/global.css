@@ -1,0 +1,11 @@
+.font-link {
+    font-family: 'Lato', sans-serif;
+}
+
+body {
+    margin: 0;
+    font-size: 16px;
+    color: white;
+    min-height: 750px;
+    font-weight: bold;
+}

@@ -1,17 +1,38 @@
-import React from 'react';
-import ReactDOM from 'react-dom/client';
-import './index.css';
-import App from './App';
-import reportWebVitals from './reportWebVitals';
+import React from "react";
+import ReactDOM from "react-dom/client";
+import {
+  BrowserRouter as Router,
+  Routes,
+  Navigate,
+  Route,
+} from "react-router-dom";
+import "../src/utils/style/index.scss";
+import Signup from "./pages/Signup";
+import Login from "./pages/Login";
+import Dashboard from "./pages/Dashboard";
+// import Profil from "./pages/Profil";
+import Error from "./components/Error/NotFoundPage";
+// import Freelances from "./pages/Freelances";
+import "normalize.css";
+import "./utils/style/global.css";
 
-const root = ReactDOM.createRoot(document.getElementById('root'));
+const Profil = () => <h1>Profil (Private)</h1>;
+// const Dashboard = () => <h1>Dashboard (Private)</h1>;
+
+const root = ReactDOM.createRoot(document.getElementById("root"));
 root.render(
   <React.StrictMode>
-    <App />
+    <div className="font-link">
+      <Router>
+        <Routes>
+          <Route path="/" element={<Navigate to="/login" replace />} />
+          <Route path="/login" element={<Login />} />
+          <Route path="/signup" element={<Signup />} />
+          <Route path="/dashboard" element={<Dashboard />} />
+          <Route path="/profil" element={<Profil />} />
+          <Route path="*" element={<Error />} />
+        </Routes>
+      </Router>
+    </div>
   </React.StrictMode>
 );
-
-// If you want to start measuring performance in your app, pass a function
-// to log results (for example: reportWebVitals(console.log))
-// or send to an analytics endpoint. Learn more: https://bit.ly/CRA-vitals
-reportWebVitals();

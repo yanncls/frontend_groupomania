@@ -1,0 +1,56 @@
+@use '_colors.scss';
+
+#Logo {
+    width: 320px;
+    height: 320px;
+}
+
+.logo-container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+}
+
+.App {
+    background-color: colors.$backgroundDark;
+    height: 60rem;
+}
+
+.Content {
+    background-color: colors.$backgroundLight;
+    display: flex;
+    flex-direction: column;
+    border-radius: 10px;
+    width: 20rem;
+    align-items: center;
+    color: colors.$secondary;
+    text-align: center;
+
+}
+
+.Container__Log {
+    display: flex;
+    justify-content: center;
+    height: 28rem;
+}
+
+input {
+    padding: 12px 20px;
+    margin: 8px 0;
+    border-radius: 10px;
+}
+
+form {
+    display: flex;
+    flex-direction: column;
+}
+
+.login-btn {
+    border-radius: 10px;
+    background-color: colors.$secondary;
+}
+
+.link-login {
+    color: colors.$secondary;
+}

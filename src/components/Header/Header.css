@@ -1,0 +1,16 @@
+@use '_colors.scss';
+nav {
+  position: -webkit-sticky;
+  position: sticky;
+  top: 0px;
+  -ms-flex-item-align: start;
+      align-self: flex-start;
+  height: 3rem;
+  text-align: right;
+}
+
+nav a {
+  text-decoration: none;
+  margin-right: 30px;
+}
+/*# sourceMappingURL=Header.css.map */
