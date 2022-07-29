@@ -60,6 +60,19 @@
 }
 
 .post-content {
-  margin-left: 5rem;
-  margin-bottom: 2rem;
+  margin: 0rem 5rem 1rem 5rem;
+  img {
+    // margin-top: 1rem;
+    width: 100%;
+    border-radius: 10px;
+  }
+  p {
+    text-align: justify;
+  }
+}
+
+.post-content_file {
+  display: flex;
+  align-items: center;
+  flex-direction: column;
 }

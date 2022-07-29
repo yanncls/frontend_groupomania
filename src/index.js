@@ -10,13 +10,13 @@ import "../src/utils/style/index.scss";
 import Signup from "./pages/Signup";
 import Login from "./pages/Login";
 import Dashboard from "./pages/Dashboard";
-// import Profil from "./pages/Profil";
+import Profil from "./pages/Profil";
 import Error from "./components/Error/NotFoundPage";
 // import Freelances from "./pages/Freelances";
 import "normalize.css";
 import "./utils/style/global.css";
 
-const Profil = () => <h1>Profil (Private)</h1>;
+// const Profil = () => <h1>Profil (Private)</h1>;
 // const Dashboard = () => <h1>Dashboard (Private)</h1>;
 
 const root = ReactDOM.createRoot(document.getElementById("root"));

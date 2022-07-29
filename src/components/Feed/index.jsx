@@ -1,6 +1,7 @@
 import "./index.scss";
 import FaceProfile from "./visage.jpeg";
 import LikeBtn from "./like.svg";
+import FilePost from "./sttropez.jpeg";
 
 const Feed = () => {
   return (
@@ -15,11 +16,16 @@ const Feed = () => {
         </div>
       </div>
       <div className="post-container">
-        <div className="post-content">
-          Lorem ipsum dolor sit amet consectetur adipisicing elit. Aliquam
-          distinctio dolore inventore iusto cum nisi. Veritatis aperiam pariatur
-          quis soluta dignissimos illo excepturi corporis similique quam,
-          voluptatibus nemo, recusandae nihil.
+        <div className="post-content_file">
+          <div className="post-content">
+            <p>
+              Lorem ipsum dolor sit amet consectetur adipisicing elit. Aliquam
+              distinctio dolore inventore iusto cum nisi. Veritatis aperiam
+              pariatur quis soluta dignissimos illo excepturi corporis similique
+              quam, voluptatibus nemo, recusandae nihil.
+            </p>
+            <img src={FilePost} alt="st tropez" />
+          </div>
         </div>
         <div className="post-like-btn">
           <button>

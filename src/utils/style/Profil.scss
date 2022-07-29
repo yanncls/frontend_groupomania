@@ -1,0 +1,40 @@
+@use "_colors.scss";
+// img {
+//   .background-picture {
+//     width: -webkit-fill-available;
+//     height: 15rem;
+//   }
+// }
+.Profil {
+  background-color: colors.$backgroundDark;
+}
+
+.profil-background {
+  width: 100%;
+  img {
+    width: 100%;
+    height: 12rem;
+  }
+}
+
+.profil-cropper {
+  width: 10rem;
+  height: 10rem;
+  position: relative;
+  overflow: hidden;
+  border-radius: 50%;
+  top: -5rem;
+  img {
+    display: inline;
+    margin: 0 auto;
+    margin-left: -25%; //centers the image
+    height: 100%;
+    width: auto;
+  }
+}
+
+.header-profil {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
