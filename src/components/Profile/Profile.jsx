@@ -19,11 +19,6 @@ const Profile = () => {
         </h4>
       </div>
       <div className="my-profile">
-        <Link to="/Profil" style={{ padding: "10px" }}>
-          Mon profil
-        </Link>
-      </div>
-      <div className="my-profile">
         <Link to="/Create" style={{ padding: "10px" }}>
           Créer une publication
         </Link>

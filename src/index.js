@@ -13,6 +13,7 @@ import Dashboard from "./pages/Dashboard";
 import Profil from "./pages/Profil";
 import Error from "./components/Error/NotFoundPage";
 import Note from "./pages/Note";
+import Create from "./pages/Create";
 import "normalize.css";
 import "./utils/style/global.css";
 import { AuthProvider } from "./context/AuthProvider";
@@ -31,8 +32,9 @@ root.render(
             <Route path="/login" element={<Login />} />
             <Route path="/signup" element={<Signup />} />
             <Route path="/dashboard" element={<Dashboard />} />
-            <Route path="/Note/:id" element={<Note />} />
+            <Route path="/note/:id" element={<Note />} />
             <Route path="/profil" element={<Profil />} />
+            <Route path="/create" element={<Create />} />
             <Route path="*" element={<Error />} />
           </Routes>
         </AuthProvider>
