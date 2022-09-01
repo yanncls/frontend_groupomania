@@ -23,6 +23,11 @@ const Profile = () => {
           Mon profil
         </Link>
       </div>
+      <div className="my-profile">
+        <Link to="/Create" style={{ padding: "10px" }}>
+          Créer une publication
+        </Link>
+      </div>
     </div>
   );
 };

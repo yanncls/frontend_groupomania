@@ -3,8 +3,16 @@ import ProfileLogo from "../action_bar/photo-man.jpeg";
 import ArticleLogo from "../action_bar/thread.svg";
 import ImageLogo from "../action_bar/image.svg";
 import VideoLogo from "../action_bar/video.svg";
+// import { useState } from "react";
+// import { useEffect } from "react";
 
 const Action = () => {
+  // const POST_URL = "/api/notes";
+
+  // // user inputs
+  // const [description, setDescription] = useState("");
+  // const [validDescription, setValidDescription] = useState(false);
+
   return (
     <div className="PostBar">
       <div className="image-cropper">

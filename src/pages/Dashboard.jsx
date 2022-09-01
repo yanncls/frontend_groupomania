@@ -4,8 +4,13 @@ import "../utils/style/Dashboard.scss";
 import Profile from "../components/Profile/Profile";
 import Action from "../components/action_bar/Action";
 import Feed from "../components/Feed";
+import { Navigate } from "react-router-dom";
 
 function Dashboard() {
+  const token = localStorage.getItem("token");
+  if (!token) {
+    return <Navigate to="/login" />;
+  }
   return (
     <div>
       <Header />
@@ -14,9 +19,9 @@ function Dashboard() {
           <Profile />
         </div>
         <div className="Main-Card">
-          <div className="Publish-Card">
+          {/* <div className="Publish-Card">
             <Action />
-          </div>
+          </div> */}
           <div className="Feed">
             <Feed />
           </div>

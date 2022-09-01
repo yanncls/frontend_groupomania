@@ -1,39 +1,59 @@
 import "./index.scss";
-import FaceProfile from "./visage.jpeg";
 import LikeBtn from "./like.svg";
 import FilePost from "./sttropez.jpeg";
+import { useState, useEffect } from "react";
+import axios from "../../api/axios";
+import Author from "../Author/Author";
+import EditButton from "../EditButton/EditButton";
 
 const Feed = () => {
+  // récupérer l'userId dans le local storage
+  const thisUser = localStorage.getItem("userId");
+  JSON.stringify(thisUser);
+
+  // Path vers api notes
+  const API_URL = "/api/notes";
+
+  // states notes
+  const [notes, setNotes] = useState([]);
+
+  // fetch api pour récupérer les publications
+  useEffect(() => {
+    const allNotes = async () => {
+      const res = await axios.get(API_URL);
+      setNotes(res);
+    };
+    (async () => await allNotes())();
+  }, []);
+
   return (
-    <div className="post-card">
-      <div className="post-card-top">
-        <div className="post-profile-cropper">
-          <img src={FaceProfile} alt="visage" className="post-profile-pic" />
-        </div>
-        <div className="post-author">
-          <h3>Pascaline Hartmann</h3>
-          <p>Il y a 2 heures</p>
-        </div>
-      </div>
-      <div className="post-container">
-        <div className="post-content_file">
-          <div className="post-content">
-            <p>
-              Lorem ipsum dolor sit amet consectetur adipisicing elit. Aliquam
-              distinctio dolore inventore iusto cum nisi. Veritatis aperiam
-              pariatur quis soluta dignissimos illo excepturi corporis similique
-              quam, voluptatibus nemo, recusandae nihil.
-            </p>
-            <img src={FilePost} alt="st tropez" />
+    <div>
+      {notes.map((note) => {
+        return (
+          <div key={note._id}>
+            <div className="post-card">
+              <div className="post-card-top">
+                <Author note={note} />
+              </div>
+              <div className="post-container">
+                <div className="post-content_file">
+                  <div className="post-content">
+                    <p>{note.description}</p>
+                    <img src={FilePost} alt="st tropez" />
+                  </div>
+                </div>
+                <div className="post-like-btn">
+                  <button>
+                    <img src={LikeBtn} alt="like" />
+                  </button>
+                  <p>0</p>
+                  <EditButton note={note} />
+                </div>
+              </div>
+            </div>
           </div>
-        </div>
-        <div className="post-like-btn">
-          <button>
-            <img src={LikeBtn} alt="like" />
-          </button>
-          <p>0</p>
-        </div>
-      </div>
+        );
+      })}
     </div>
   );
 };

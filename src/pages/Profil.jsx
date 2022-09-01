@@ -2,6 +2,7 @@ import BackgroundPic from "../assets/milkyway.jpeg";
 import "../utils/style/Profil.scss";
 import Header from "../components/Header/index";
 import ProfileSvg from "../assets/photo-man.jpeg";
+import { Link } from "react-router-dom";
 
 function Profil() {
   return (
@@ -51,7 +52,9 @@ function Profil() {
               />
             </li>
           </ul>
-          <button>Soumettre</button>
+          <Link to="/dashboard">
+            <button>Soumettre</button>
+          </Link>
         </form>
       </div>
     </div>
