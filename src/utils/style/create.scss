@@ -1,19 +1,35 @@
 .Create_Title {
   background-color: #1e1f28;
-  height: 200rem;
+  height: 50rem;
   display: flex;
   justify-content: center;
+  align-items: center;
 }
 
 .Create_Form {
   display: flex;
+  align-items: center;
+  input {
+    width: 80%;
+  }
 }
 
 .Create_Box {
   background-color: #4e5166;
+  width: 40%;
+  height: 40rem;
+  border-radius: 2%;
 }
 
 .Create_Index {
   display: flex;
   justify-content: center;
+}
+
+.post_label {
+  display: flex;
+  justify-content: center;
+  label {
+    font-weight: 20rem;
+  }
 }
