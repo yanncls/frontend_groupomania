@@ -17,8 +17,8 @@ const EditButton = (note) => {
 
   // essayer de tester le chemin sans l'id puis vérifier si
   // cela peut fonctionner
-  const navigateProfil = () => {
-    navigate(`/Note/${noteId}`);
+  const navigateModify = () => {
+    navigate(`/modify/${noteId}`);
     // <Link to={{ pathname: `/User/${noteId}`, state: { note: note } }} />;
   };
   // logique pour afficher le boutton edit
@@ -35,7 +35,7 @@ const EditButton = (note) => {
     <>
       {valid ? (
         <div>
-          <button onClick={navigateProfil}>Edit</button>
+          <button onClick={navigateModify}>Edit</button>
         </div>
       ) : null}
     </>

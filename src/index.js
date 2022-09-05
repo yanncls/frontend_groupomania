@@ -14,6 +14,7 @@ import Profil from "./pages/Profil";
 import Error from "./components/Error/NotFoundPage";
 import Note from "./pages/Note";
 import Create from "./pages/Create";
+import Modify from "./pages/Modify";
 import "normalize.css";
 import "./utils/style/global.css";
 import { AuthProvider } from "./context/AuthProvider";
@@ -35,6 +36,7 @@ root.render(
             <Route path="/note/:id" element={<Note />} />
             <Route path="/profil" element={<Profil />} />
             <Route path="/create" element={<Create />} />
+            <Route path="/modify/:id" element={<Modify />} />
             <Route path="*" element={<Error />} />
           </Routes>
         </AuthProvider>
