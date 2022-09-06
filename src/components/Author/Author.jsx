@@ -1,6 +1,7 @@
 import { useState, useEffect } from "react";
 import axios from "../../api/axios";
 import FaceProfile from "./visage.jpeg";
+import "./Author.scss";
 
 const Author = ({ note }) => {
   // Path vers l'api profil
@@ -23,11 +24,13 @@ const Author = ({ note }) => {
 
   return (
     <div key={user._id}>
-      <div className="post-profile-cropper">
-        <img src={FaceProfile} alt="visage" className="post-profile-pic" />
-      </div>
-      <div className="post-author">
-        <h3>{user.user}</h3>
+      <div className="author-header">
+        <div className="post-profile-cropper">
+          <img src={FaceProfile} alt="visage" className="post-profile-pic" />
+        </div>
+        <div className="post-author">
+          <h3>{user.user}</h3>
+        </div>
       </div>
     </div>
   );

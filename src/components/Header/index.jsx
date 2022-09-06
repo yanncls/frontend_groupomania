@@ -7,6 +7,16 @@ import LogoutLogo from "../Header/logout_white.svg";
 
 const { Link } = require("react-router-dom");
 const Navbar = () => {
+  const logout = async (e) => {
+    e.preventDefault();
+
+    try {
+      localStorage.clear();
+      window.location.reload();
+    } catch (error) {
+      console.log(error);
+    }
+  };
   return (
     <nav>
       <div className="logo">
@@ -20,7 +30,7 @@ const Navbar = () => {
         <Link to="/Profil" style={{ padding: "10px" }}>
           <img src={ProfileLogo} alt="profile" />
         </Link>
-        <Link to="/" style={{ padding: "10px" }}>
+        <Link to="/" style={{ padding: "10px" }} onClick={logout}>
           <img src={LogoutLogo} alt="logout" />
         </Link>
       </div>

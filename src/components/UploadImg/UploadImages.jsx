@@ -22,7 +22,14 @@ export default function UploadImages({ imageLink, setImageLink }) {
   }
   return (
     <>
-      <input type="file" multiple accept="image/*" onChange={onImageChange} />
+      <input
+        type="file"
+        id="file"
+        name="file"
+        multiple
+        accept="image/*"
+        onChange={onImageChange}
+      />
       {imageURLs.map((imageUrl) => (
         <img alt="img" name="imageUrl" src={imageUrl} key={imageUrl.length} />
       ))}

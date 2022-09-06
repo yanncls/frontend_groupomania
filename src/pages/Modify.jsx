@@ -1,6 +1,15 @@
 import Header from "../components/Header/index";
 
 export default function Modify() {
+  const handleDelete = async (req, res, next) => {
+    try {
+      const reqId = req.params.id;
+      console.log(reqId);
+    } catch (error) {
+      console.log(error);
+    }
+  };
+
   return (
     <div>
       <div>
@@ -27,6 +36,7 @@ export default function Modify() {
             <br />
             <button>Mettre à jour</button>
           </form>
+          <button onClick={handleDelete}>Supprimer</button>
         </div>
       </div>
     </div>

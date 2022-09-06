@@ -2,8 +2,34 @@ import "./Profile.scss";
 import ProfileSvg from "./photo-man.jpeg";
 import BackgroundJpeg from "./milkyway.jpeg";
 import { Link } from "react-router-dom";
+import { useState, useEffect } from "react";
+import axios from "../../api/axios";
 
 const Profile = () => {
+  // récupérer l'userId dans le local storage
+  const thisUser = localStorage.getItem("userId");
+  JSON.stringify(thisUser);
+  console.log("thisUser", thisUser);
+
+  // state pour stocker la data
+  const [user, setUser] = useState([]);
+
+  // Path vers l'api profil
+  const PROFIL_URL = "/api/auth/profil";
+
+  // data à envoyer dans le params
+  const myUser = thisUser;
+  console.log("myUser", myUser);
+
+  // fetch le profil de l'auteur
+  useEffect(() => {
+    const userProfil = async () => {
+      const res = await axios.get(`${PROFIL_URL}/${thisUser}`);
+      setUser(res);
+    };
+    (async () => await userProfil())();
+  });
+
   return (
     <div>
       <div className="background">
@@ -13,10 +39,8 @@ const Profile = () => {
         </div>
       </div>
       <div className="attribut">
-        <h3>Fabien Olicard</h3>
-        <h4>
-          Lorem ipsum dolor sit amet, consectetur adipisicing elit. Error animi.
-        </h4>
+        <h3>{user.user}</h3>
+        <h4>{user.bio}</h4>
       </div>
       <div className="my-profile">
         <Link to="/Create" style={{ padding: "10px" }}>

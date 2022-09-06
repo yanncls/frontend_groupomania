@@ -3,12 +3,13 @@ import "../utils/style/Profil.scss";
 import Header from "../components/Header/index";
 import ProfileSvg from "../assets/photo-man.jpeg";
 import { Link } from "react-router-dom";
+import MyFeed from "../components/MyFeed/MyFeed";
 
 function Profil() {
   return (
     <div className="Profil">
       <Header />
-      <div className="header-profil">
+      {/* <div className="header-profil">
         <div className="profil-background">
           <img src={BackgroundPic} alt="background" id="background-picture" />
         </div>
@@ -56,6 +57,9 @@ function Profil() {
             <button>Soumettre</button>
           </Link>
         </form>
+      </div> */}
+      <div className="Feed">
+        <MyFeed />
       </div>
     </div>
   );
