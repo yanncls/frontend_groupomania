@@ -1,10 +1,21 @@
 import Header from "../components/Header/index";
+import { useParams } from "react-router-dom";
+import axios from "../api/axios";
 
 export default function Modify() {
-  const handleDelete = async (req, res, next) => {
+  const params = useParams();
+  console.log("params", params);
+
+  // path
+  const PROFIL_URL = "api/notes";
+
+  // supprimer un post
+  const handleDelete = async (e) => {
+    e.preventDefault();
+
     try {
-      const reqId = req.params.id;
-      console.log(reqId);
+      const res = await axios.delete(`${PROFIL_URL}/${params.id}`);
+      console.log(res);
     } catch (error) {
       console.log(error);
     }

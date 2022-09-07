@@ -7,6 +7,10 @@ import LogoutLogo from "../Header/logout_white.svg";
 
 const { Link } = require("react-router-dom");
 const Navbar = () => {
+  // capturer l'userId
+  const userId = localStorage.getItem("userId");
+
+  // clic logout suppr localstorage
   const logout = async (e) => {
     e.preventDefault();
 
@@ -27,7 +31,7 @@ const Navbar = () => {
           <img src={HomeLogo} alt="home" />
           Acceuil
         </Link>
-        <Link to="/Profil" style={{ padding: "10px" }}>
+        <Link to={`/profil/${userId}`} style={{ padding: "10px" }}>
           <img src={ProfileLogo} alt="profile" />
         </Link>
         <Link to="/" style={{ padding: "10px" }} onClick={logout}>

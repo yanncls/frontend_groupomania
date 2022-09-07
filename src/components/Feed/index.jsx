@@ -23,7 +23,8 @@ const Feed = () => {
       const res = await axios.get(API_URL);
       setNotes(res);
     };
-    (async () => await allNotes())();
+    console.log("i fire once");
+    allNotes();
   }, []);
 
   return (

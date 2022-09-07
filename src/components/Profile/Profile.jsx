@@ -27,8 +27,8 @@ const Profile = () => {
       const res = await axios.get(`${PROFIL_URL}/${thisUser}`);
       setUser(res);
     };
-    (async () => await userProfil())();
-  });
+    userProfil();
+  }, [thisUser]);
 
   return (
     <div>

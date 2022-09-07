@@ -19,8 +19,8 @@ const Author = ({ note }) => {
       const res = await axios.get(`${PROFIL_URL}/${myUser}`);
       setUser(res);
     };
-    (async () => await userProfil())();
-  });
+    userProfil();
+  }, []);
 
   return (
     <div key={user._id}>

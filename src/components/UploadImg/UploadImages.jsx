@@ -2,7 +2,7 @@ import { useState, useEffect } from "react";
 
 // Permettre de mettre une image
 
-export default function UploadImages({ imageLink, setImageLink }) {
+export default function UploadImages({ setImageLink }) {
   // states
   const [images, setImages] = useState([]);
   const [imageURLs, setImageURLs] = useState([]);
@@ -17,6 +17,7 @@ export default function UploadImages({ imageLink, setImageLink }) {
 
   //   Setteur Images Update
   function onImageChange(e) {
+    console.log(e);
     setImages([...e.target.files]);
     setImageLink([...e.target.files]);
   }

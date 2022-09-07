@@ -9,7 +9,7 @@ function Profil() {
   return (
     <div className="Profil">
       <Header />
-      {/* <div className="header-profil">
+      <div className="header-profil">
         <div className="profil-background">
           <img src={BackgroundPic} alt="background" id="background-picture" />
         </div>
@@ -57,7 +57,7 @@ function Profil() {
             <button>Soumettre</button>
           </Link>
         </form>
-      </div> */}
+      </div>
       <div className="Feed">
         <MyFeed />
       </div>

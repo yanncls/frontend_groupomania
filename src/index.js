@@ -24,23 +24,21 @@ import { AuthProvider } from "./context/AuthProvider";
 
 const root = ReactDOM.createRoot(document.getElementById("root"));
 root.render(
-  <React.StrictMode>
-    <div className="font-link">
-      <Router>
-        <AuthProvider>
-          <Routes>
-            <Route path="/" element={<Navigate to="/login" replace />} />
-            <Route path="/login" element={<Login />} />
-            <Route path="/signup" element={<Signup />} />
-            <Route path="/dashboard" element={<Dashboard />} />
-            <Route path="/note/:id" element={<Note />} />
-            <Route path="/profil" element={<Profil />} />
-            <Route path="/create" element={<Create />} />
-            <Route path="/modify/:id" element={<Modify />} />
-            <Route path="*" element={<Error />} />
-          </Routes>
-        </AuthProvider>
-      </Router>
-    </div>
-  </React.StrictMode>
+  <div className="font-link">
+    <Router>
+      <AuthProvider>
+        <Routes>
+          <Route path="/" element={<Navigate to="/login" replace />} />
+          <Route path="/login" element={<Login />} />
+          <Route path="/signup" element={<Signup />} />
+          <Route path="/dashboard" element={<Dashboard />} />
+          <Route path="/note/:id" element={<Note />} />
+          <Route path="/profil/:id" element={<Profil />} />
+          <Route path="/create" element={<Create />} />
+          <Route path="/modify/:id" element={<Modify />} />
+          <Route path="*" element={<Error />} />
+        </Routes>
+      </AuthProvider>
+    </Router>
+  </div>
 );

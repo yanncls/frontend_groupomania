@@ -26,27 +26,19 @@ function Create() {
   const handleSubmit = async (e) => {
     e.preventDefault();
 
+    const userId = localStorage.getItem("userId");
+    console.log(imageLink[0]);
+    const formData = new FormData();
+    formData.append("image", imageLink[0]);
+    formData.append("description", description);
+    formData.append("userId", userId);
+
     try {
-      //   const image = imageLink[0].name;
-      //   console.log(image);
-      //   console.log(description);
-      const userId = localStorage.getItem("userId");
       const res = await axios(POST_URL, {
         method: "POST",
-        data: JSON.stringify({
-          description: description,
-          userId: userId,
-          imageUrl: imageLink,
-        }),
-        headers: { "Content-Type": "application/json" },
+        data: formData,
+        headers: { "Content-Type": "multipart/form-data" },
       });
-      //   const resJson = await res.json();
-      //   if (res.status === 200) {
-      //     setDescription("");
-      //     setImageLink("");
-      //     console.log("publication crée avec succès");
-      //   }
-      console.log(JSON.stringify(res));
     } catch (err) {
       console.log("une erreur est survenue", err);
     }
