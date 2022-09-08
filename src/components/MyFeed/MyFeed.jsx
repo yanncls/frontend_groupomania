@@ -5,7 +5,7 @@ import EditButton from "../EditButton/EditButton";
 
 export default function MyFeed() {
   // parametre user
-  const thisUser = localStorage.getItem("userId");
+  const userId = localStorage.getItem("userId");
 
   // Path ver api notes
   const API_URL = "/api/notes";
@@ -15,17 +15,14 @@ export default function MyFeed() {
 
   //   logique
   useEffect(() => {
-    console.log(thisUser);
+    console.log(userId);
     const myNotes = async () => {
-      const res = await axios(API_URL, {
+      const res = await axios(`${API_URL}/${userId}`, {
         method: "GET",
-        data: JSON.stringify({
-          userId: thisUser,
-        }),
       });
       setNotes(res);
     };
-    (async () => await myNotes())();
+    myNotes();
   }, []);
 
   return (
