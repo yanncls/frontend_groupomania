@@ -39,6 +39,7 @@ function Create() {
         data: formData,
         headers: { "Content-Type": "multipart/form-data" },
       });
+      console.log(res);
     } catch (err) {
       console.log("une erreur est survenue", err);
     }

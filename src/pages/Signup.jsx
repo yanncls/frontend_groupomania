@@ -80,6 +80,7 @@ function Signup() {
   // Si l'user hack le boutton desactivé
   const handleSubmit = async (e) => {
     e.preventDefault();
+
     const v1 = USER_REGEX.test(user);
     const v2 = EMAIL_REGEX.test(email);
     const v3 = PWD_REGEX.test(password);
@@ -87,6 +88,7 @@ function Signup() {
       setErrMsg("Requête invalide");
       return;
     }
+
     // envoyer les données au backend si le formulaire est valide
     try {
       const res = await axios.post(
@@ -97,15 +99,6 @@ function Signup() {
           withCredentials: false,
         }
       );
-      // const res = await axios({
-      //   method: "POST",
-      //   url: "/signup",
-      //   data: {
-      //     user: user,
-      //     pwd: pwd,
-      //     email: email,
-      //   },
-      // });
       console.log(res.data);
       console.log(res.accesToken);
       console.log(JSON.stringify(res));
