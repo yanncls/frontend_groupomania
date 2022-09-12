@@ -46,22 +46,12 @@ export default function AccountInfo() {
   const handleSubmit = async (e) => {
     e.preventDefault();
 
-    const formData = new FormData();
-    formData.append("email", email);
-    formData.append("bio", bio);
-    formData.append("name", name);
-    formData.append("surname", surname);
-
     try {
-      const res = await axios(
-        `${PROFIL_URL}/${userId}`,
-        {
-          method: "PUT",
-          data: formData,
-          headers: { "Content-Type": "application/json" },
-        }
-        // JSON.stringify({ email, name, surname, bio })
-      );
+      const res = await axios(`${PROFIL_URL}/${userId}`, {
+        method: "PUT",
+        data: { name, bio, surname, email },
+        headers: { "Content-Type": "application/json" },
+      });
       console.log("succes", res);
       setUpdate(res);
     } catch (error) {

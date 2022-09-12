@@ -1,10 +1,10 @@
 import "./index.scss";
-import LikeBtn from "./like.svg";
 import FilePost from "./sttropez.jpeg";
 import { useState, useEffect } from "react";
 import axios from "../../api/axios";
 import Author from "../Author/Author";
 import EditButton from "../EditButton/EditButton";
+import LikeButton from "../LikeButton/LikeButton";
 
 const Feed = () => {
   // récupérer l'userId dans le local storage
@@ -40,14 +40,11 @@ const Feed = () => {
                 <div className="post-content_file">
                   <div className="post-content">
                     <p>{note.description}</p>
-                    <img src={FilePost} alt="st tropez" />
+                    <img src={note.imageUrl} alt="st tropez" />
                   </div>
                 </div>
                 <div className="post-like-btn">
-                  <button>
-                    <img src={LikeBtn} alt="like" />
-                  </button>
-                  <p>0</p>
+                  <LikeButton noteId={note._id} noteLike={note.like} />
                   <EditButton note={note} />
                 </div>
               </div>
