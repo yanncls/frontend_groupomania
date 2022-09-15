@@ -1,8 +1,11 @@
 import React from "react";
+import "./EditButton.scss";
 import { useState, useEffect } from "react";
 import { library } from "@fortawesome/fontawesome-svg-core";
 import { faPen } from "@fortawesome/free-solid-svg-icons";
 import { useNavigate } from "react-router-dom";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+<FontAwesomeIcon icon="fa-regular fa-pen-to-square" />;
 
 library.add(faPen);
 
@@ -34,8 +37,10 @@ const EditButton = (note) => {
   return (
     <>
       {valid ? (
-        <div>
-          <button onClick={navigateModify}>Edit</button>
+        <div className="Edit_Button">
+          <button onClick={navigateModify}>
+            <FontAwesomeIcon icon={faPen} />
+          </button>
         </div>
       ) : null}
     </>

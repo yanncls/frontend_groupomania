@@ -16,6 +16,7 @@ export default function AccountInfo() {
   const [isRightUser, setIsRightUser] = useState(false);
   const [user, setUser] = useState([]);
 
+  const [username, setUsername] = useState("");
   const [name, setName] = useState("");
   const [surname, setSurname] = useState("");
   const [email, setEmail] = useState("");
@@ -49,7 +50,7 @@ export default function AccountInfo() {
     try {
       const res = await axios(`${PROFIL_URL}/${userId}`, {
         method: "PUT",
-        data: { name, bio, surname, email },
+        data: { name, bio, surname, email, username },
         headers: { "Content-Type": "application/json" },
       });
       console.log("succes", res);
@@ -66,6 +67,16 @@ export default function AccountInfo() {
           <h2>Mes informations personnelles</h2>
           <form action="info-profil-update" onSubmit={handleSubmit}>
             <ul>
+              <li>
+                username:{" "}
+                <input
+                  type="text"
+                  name="user"
+                  id="user"
+                  placeholder={user.user}
+                  onChange={(e) => setUsername(e.target.value)}
+                />
+              </li>
               <li>
                 Prénom:{" "}
                 <input

@@ -23,7 +23,6 @@ const Feed = () => {
       const res = await axios.get(API_URL);
       setNotes(res);
     };
-    console.log("i fire once");
     allNotes();
   }, []);
 
@@ -44,7 +43,11 @@ const Feed = () => {
                   </div>
                 </div>
                 <div className="post-like-btn">
-                  <LikeButton noteId={note._id} noteLike={note.like} />
+                  <LikeButton
+                    noteId={note._id}
+                    noteLike={note.like}
+                    usersLiked={note.usersLiked}
+                  />
                   <EditButton note={note} />
                 </div>
               </div>

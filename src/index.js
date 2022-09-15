@@ -18,6 +18,7 @@ import Modify from "./pages/Modify";
 import "normalize.css";
 import "./utils/style/global.css";
 import { AuthProvider } from "./context/AuthProvider";
+import HideImageContextProvider from "./context/HideImageContext";
 
 // const Profil = () => <h1>Profil (Private)</h1>;
 // const Dashboard = () => <h1>Dashboard (Private)</h1>;

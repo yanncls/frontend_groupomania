@@ -40,6 +40,9 @@ const Profile = () => {
       </div>
       <div className="attribut">
         <h3>{user.user}</h3>
+        <h5>
+          {user.name} {user.surname}
+        </h5>
         <h4>{user.bio}</h4>
       </div>
       <div className="my-profile">

@@ -29,7 +29,10 @@ const Author = ({ note }) => {
           <img src={FaceProfile} alt="visage" className="post-profile-pic" />
         </div>
         <div className="post-author">
-          <h3>{user.user}</h3>
+          <h3>
+            {user.name} {user.surname}
+          </h3>
+          <h4>@{user.user}</h4>
         </div>
       </div>
     </div>
