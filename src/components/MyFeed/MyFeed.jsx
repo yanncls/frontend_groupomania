@@ -2,6 +2,7 @@ import { useState, useEffect } from "react";
 import axios from "../../api/axios";
 import Author from "../Author/Author";
 import EditButton from "../EditButton/EditButton";
+import LikeButton from "../LikeButton/LikeButton";
 
 export default function MyFeed() {
   // parametre user
@@ -38,14 +39,15 @@ export default function MyFeed() {
                 <div className="post-content_file">
                   <div className="post-content">
                     <p>{note.description}</p>
-                    <img src="" alt="st tropez" />
+                    <img src={note.imageUrl} alt="st tropez" />
                   </div>
                 </div>
                 <div className="post-like-btn">
-                  <button>
-                    <img src="" alt="like" />
-                  </button>
-                  <p>0</p>
+                  <LikeButton
+                    noteId={note._id}
+                    noteLike={note.like}
+                    usersLiked={note.usersLiked}
+                  />
                   <EditButton note={note} />
                 </div>
               </div>

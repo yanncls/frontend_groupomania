@@ -5,22 +5,26 @@ import ProfileSvg from "../assets/photo-man.jpeg";
 import { Link } from "react-router-dom";
 import MyFeed from "../components/MyFeed/MyFeed";
 import AccountInfo from "../components/AccountInfo/AccountInfo";
+import { useState } from "react";
 
 function Profil() {
+  // states
+  const [thisUser, setThisUser] = useState("");
+
+  console.log(thisUser);
+
   return (
-    <div className="Profil">
+    <div>
       <Header />
-      <div className="header-profil">
-        <div className="profil-background">
-          <img src={BackgroundPic} alt="background" id="background-picture" />
+      <div className="Dashboard">
+        <div className="Profil-Card">
+          <AccountInfo setThisUser={setThisUser} />
         </div>
-        <div className="profil-cropper">
-          <img src={ProfileSvg} alt="ProfilPhoto" />
+        <div className="Main-Card">
+          <div className="Feed">
+            <MyFeed />
+          </div>
         </div>
-      </div>
-      <AccountInfo />
-      <div className="Feed">
-        <MyFeed />
       </div>
     </div>
   );

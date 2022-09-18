@@ -3,6 +3,9 @@ import { useEffect } from "react";
 import { useState } from "react";
 import { Link } from "react-router-dom";
 import { useParams } from "react-router-dom";
+import Photo from "./photo-man.jpeg";
+import backgroundPic from "./milkyway.jpeg";
+import UploadPicture from "../UploadImg/UploadPicture";
 
 export default function AccountInfo() {
   // parametres
@@ -16,6 +19,7 @@ export default function AccountInfo() {
   const [isRightUser, setIsRightUser] = useState(false);
   const [user, setUser] = useState([]);
 
+  // DATA TEXT
   const [username, setUsername] = useState("");
   const [name, setName] = useState("");
   const [surname, setSurname] = useState("");
@@ -23,6 +27,10 @@ export default function AccountInfo() {
   const [bio, setBio] = useState("");
 
   const [update, setUpdate] = useState("");
+
+  // states pictures
+  const [imageLink, setImageLink] = useState("");
+  const [imageHasChange, setImageHasChange] = useState(false);
 
   //   condition pour afficher editeur de profil
   useEffect(() => {
@@ -47,11 +55,23 @@ export default function AccountInfo() {
   const handleSubmit = async (e) => {
     e.preventDefault();
 
+    const formData = new FormData();
+    formData.append("image", imageLink[0]);
+    formData.append("name", name);
+    formData.append("bio", bio);
+    formData.append("surname", surname);
+    formData.append("email", email);
+    formData.append("user", username);
+    // formData.append("userId", userId);
+    // console.log("user send", userId);
+    // console.log(formData);
+
     try {
       const res = await axios(`${PROFIL_URL}/${userId}`, {
         method: "PUT",
-        data: { name, bio, surname, email, username },
-        headers: { "Content-Type": "application/json" },
+        data: formData,
+        // data: { name, bio, surname, email, username },
+        headers: { "Content-Type": "multipart/form-data" },
       });
       console.log("succes", res);
       setUpdate(res);
@@ -63,64 +83,76 @@ export default function AccountInfo() {
   return (
     <>
       {isRightUser ? (
-        <div className="info-profil">
-          <h2>Mes informations personnelles</h2>
+        <div>
+          {/* <div className="background"> */}
+          {/* <img src={backgroundPic} alt="backgroundpng" id="background-img" /> */}
+          <div className="image-cropper-top">
+            <img src={user.picture} alt="profilepng" className="profile-pic" />
+          </div>
+          {/* </div> */}
           <form action="info-profil-update" onSubmit={handleSubmit}>
-            <ul>
-              <li>
-                username:{" "}
-                <input
-                  type="text"
-                  name="user"
-                  id="user"
-                  placeholder={user.user}
-                  onChange={(e) => setUsername(e.target.value)}
-                />
-              </li>
-              <li>
-                Prénom:{" "}
-                <input
-                  type="text"
-                  name="prenom"
-                  id="prenom"
-                  placeholder={user.surname}
-                  onChange={(e) => setSurname(e.target.value)}
-                />
-              </li>
-              <li>
-                Nom:{""}
-                <input
-                  type="text"
-                  name="nom"
-                  id="nom"
-                  placeholder={user.name}
-                  onChange={(e) => setName(e.target.value)}
-                />
-              </li>
-              <li>
-                Email:{" "}
-                <input
-                  type="email"
-                  name="email"
-                  id="email"
-                  placeholder={user.email}
-                  onChange={(e) => setEmail(e.target.value)}
-                />
-              </li>
-              <li>
-                Bio:{" "}
-                <input
-                  type="text"
-                  name="bio"
-                  id="bio"
-                  placeholder={user.bio}
-                  onChange={(e) => setBio(e.target.value)}
-                />
-              </li>
-            </ul>
-            {/* <Link to="/dashboard"> */}
-            <button>Soumettre</button>
-            {/* </Link> */}
+            <div className="details">
+              <UploadPicture
+                setImageLink={setImageLink}
+                setImageHasChange={setImageHasChange}
+              />
+              <ul>
+                <li>
+                  <label htmlFor="user">Pseudo</label>
+                  <input
+                    type="text"
+                    name="user"
+                    id="user"
+                    placeholder={user.user}
+                    onChange={(e) => setUsername(e.target.value)}
+                  />
+                </li>
+                <li>
+                  <label htmlFor="prenom">Prénom</label>
+                  <input
+                    type="text"
+                    name="prenom"
+                    id="prenom"
+                    placeholder={user.surname}
+                    onChange={(e) => setSurname(e.target.value)}
+                  />
+                </li>
+                <li>
+                  <label htmlFor="nom">Nom</label>
+                  <input
+                    type="text"
+                    name="nom"
+                    id="nom"
+                    placeholder={user.name}
+                    onChange={(e) => setName(e.target.value)}
+                  />
+                </li>
+                <li>
+                  <label htmlFor="email">Email</label>
+                  <input
+                    type="email"
+                    name="email"
+                    id="email"
+                    placeholder={user.email}
+                    onChange={(e) => setEmail(e.target.value)}
+                  />
+                </li>
+                <li>
+                  <label htmlFor="bio">Bio</label>
+                  <input
+                    type="text"
+                    name="bio"
+                    id="bio"
+                    placeholder={user.bio}
+                    onChange={(e) => setBio(e.target.value)}
+                  />
+                </li>
+              </ul>
+              {/* <Link to="/dashboard"> */}
+
+              {/* </Link> */}
+            </div>
+            <button>Modifier</button>
           </form>
         </div>
       ) : null}

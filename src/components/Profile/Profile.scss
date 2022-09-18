@@ -22,6 +22,14 @@
   }
 }
 
+// .details {
+//   display: flex;
+//   align-items: center;
+//   ul li {
+//     display: flex;
+//   }
+// }
+
 .image-cropper-top {
   width: 100px;
   height: 100px;
@@ -50,4 +58,10 @@
     color: #ffd7d7;
     font-weight: bolder;
   }
+}
+
+ul {
+  list-style-type: none;
+  display: flex;
+  flex-direction: column;
 }

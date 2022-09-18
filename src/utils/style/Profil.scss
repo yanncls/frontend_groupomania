@@ -7,6 +7,12 @@
 // }
 .Profil {
   background-color: colors.$backgroundDark;
+  display: flex;
+}
+
+.info-profil {
+  background-color: #4e5166;
+  border-radius: 1rem;
 }
 
 .profil-background {

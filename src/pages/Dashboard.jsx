@@ -19,9 +19,6 @@ function Dashboard() {
           <Profile />
         </div>
         <div className="Main-Card">
-          {/* <div className="Publish-Card">
-            <Action />
-          </div> */}
           <div className="Feed">
             <Feed />
           </div>
