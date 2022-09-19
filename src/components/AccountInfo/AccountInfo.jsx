@@ -1,10 +1,7 @@
 import axios from "../../api/axios";
 import { useEffect } from "react";
 import { useState } from "react";
-import { Link } from "react-router-dom";
 import { useParams } from "react-router-dom";
-import Photo from "./photo-man.jpeg";
-import backgroundPic from "./milkyway.jpeg";
 import UploadPicture from "../UploadImg/UploadPicture";
 
 export default function AccountInfo() {
@@ -84,13 +81,18 @@ export default function AccountInfo() {
     <>
       {isRightUser ? (
         <div>
+          <h2>Modifier mon profil</h2>
           {/* <div className="background"> */}
           {/* <img src={backgroundPic} alt="backgroundpng" id="background-img" /> */}
           <div className="image-cropper-top">
             <img src={user.picture} alt="profilepng" className="profile-pic" />
           </div>
           {/* </div> */}
-          <form action="info-profil-update" onSubmit={handleSubmit}>
+          <form
+            action="info-profil-update"
+            onSubmit={handleSubmit}
+            className="form-info"
+          >
             <div className="details">
               <UploadPicture
                 setImageLink={setImageLink}
@@ -98,52 +100,52 @@ export default function AccountInfo() {
               />
               <ul>
                 <li>
-                  <label htmlFor="user">Pseudo</label>
+                  {/* <label htmlFor="user">Pseudo</label> */}
                   <input
                     type="text"
                     name="user"
                     id="user"
-                    placeholder={user.user}
+                    placeholder="Pseudonyme"
                     onChange={(e) => setUsername(e.target.value)}
                   />
                 </li>
                 <li>
-                  <label htmlFor="prenom">Prénom</label>
+                  {/* <label htmlFor="prenom">Prénom</label> */}
                   <input
                     type="text"
                     name="prenom"
                     id="prenom"
-                    placeholder={user.surname}
+                    placeholder="Prénom"
                     onChange={(e) => setSurname(e.target.value)}
                   />
                 </li>
                 <li>
-                  <label htmlFor="nom">Nom</label>
+                  {/* <label htmlFor="nom">Nom</label> */}
                   <input
                     type="text"
                     name="nom"
                     id="nom"
-                    placeholder={user.name}
+                    placeholder="Nom"
                     onChange={(e) => setName(e.target.value)}
                   />
                 </li>
                 <li>
-                  <label htmlFor="email">Email</label>
+                  {/* <label htmlFor="email">Email</label> */}
                   <input
                     type="email"
                     name="email"
                     id="email"
-                    placeholder={user.email}
+                    placeholder="Email"
                     onChange={(e) => setEmail(e.target.value)}
                   />
                 </li>
                 <li>
-                  <label htmlFor="bio">Bio</label>
+                  {/* <label htmlFor="bio">Bio</label> */}
                   <input
                     type="text"
                     name="bio"
                     id="bio"
-                    placeholder={user.bio}
+                    placeholder="Bio"
                     onChange={(e) => setBio(e.target.value)}
                   />
                 </li>
@@ -152,7 +154,7 @@ export default function AccountInfo() {
 
               {/* </Link> */}
             </div>
-            <button>Modifier</button>
+            <button className="info-submit">Modifier</button>
           </form>
         </div>
       ) : null}

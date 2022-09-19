@@ -1,5 +1,4 @@
 import "./index.scss";
-import FilePost from "./sttropez.jpeg";
 import { useState, useEffect } from "react";
 import axios from "../../api/axios";
 import Author from "../Author/Author";
@@ -28,33 +27,38 @@ const Feed = () => {
 
   return (
     <div>
-      {notes.map((note) => {
-        return (
-          <div key={note._id}>
-            <div className="post-card">
-              <div className="post-card-top">
-                <Author note={note} />
-              </div>
-              <div className="post-container">
-                <div className="post-content_file">
-                  <div className="post-content">
-                    <p>{note.description}</p>
-                    <img src={note.imageUrl} alt="st tropez" />
-                  </div>
+      {notes
+        .slice(0)
+        .reverse()
+        .map((note) => {
+          return (
+            <div key={note._id}>
+              <div className="post-card">
+                <div className="post-card-top">
+                  <Author note={note} />
                 </div>
-                <div className="post-like-btn">
-                  <LikeButton
-                    noteId={note._id}
-                    noteLike={note.like}
-                    usersLiked={note.usersLiked}
-                  />
-                  <EditButton note={note} />
+                <div className="post-container">
+                  <div className="post-content_file">
+                    <div className="post-content">
+                      <p>{note.description}</p>
+                      <div>
+                        <img src={note.imageUrl} alt="imageUrl" />
+                      </div>
+                    </div>
+                  </div>
+                  <div className="post-like-btn">
+                    <LikeButton
+                      noteId={note._id}
+                      noteLike={note.like}
+                      usersLiked={note.usersLiked}
+                    />
+                    <EditButton note={note} />
+                  </div>
                 </div>
               </div>
             </div>
-          </div>
-        );
-      })}
+          );
+        })}
     </div>
   );
 };

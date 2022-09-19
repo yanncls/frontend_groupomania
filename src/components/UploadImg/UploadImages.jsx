@@ -6,7 +6,7 @@ export default function UploadImages({ setImageLink, setImageHasChange }) {
   // states
   const [images, setImages] = useState([]);
   const [imageURLs, setImageURLs] = useState([]);
-  const [imageChange, setImageChange] = useState(false);
+  // const [imageChange, setImageChange] = useState(false);
 
   // logique
   useEffect(() => {

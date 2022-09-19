@@ -3,26 +3,23 @@ import "../utils/style/create.scss";
 import UploadImages from "../components/UploadImg/UploadImages";
 import { useState } from "react";
 import axios from "../api/axios";
-import { Navigate } from "react-router-dom";
+import DateObject from "react-date-object";
 
 function Create() {
   const POST_URL = "/api/notes/";
 
   // States
-
   const [description, setDescription] = useState("");
   const [imageLink, setImageLink] = useState("");
 
+  // initialiser la date
+  const myDate = new DateObject({
+    format: "MMM/DD/YYYY HH:mm:ss",
+  });
+  console.log(myDate.date);
+
   // Logiques
-
-  //   useEffect(() => {
-  //     const myNote = async () => {
-  //       const res = await axios.post(POST_URL);
-  //       setNote(res);
-  //     };
-  //     (async () => await myNote())();
-  //   }, []);
-
+  // capture du submit
   const handleSubmit = async (e) => {
     e.preventDefault();
 
@@ -32,6 +29,7 @@ function Create() {
     formData.append("image", imageLink[0]);
     formData.append("description", description);
     formData.append("userId", userId);
+    formData.append("date", myDate);
 
     try {
       const res = await axios(POST_URL, {

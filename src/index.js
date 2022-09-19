@@ -12,7 +12,6 @@ import Login from "./pages/Login";
 import Dashboard from "./pages/Dashboard";
 import Profil from "./pages/Profil";
 import Error from "./components/Error/NotFoundPage";
-import Note from "./pages/Note";
 import Create from "./pages/Create";
 import Modify from "./pages/Modify";
 import "normalize.css";
@@ -33,7 +32,6 @@ root.render(
           <Route path="/login" element={<Login />} />
           <Route path="/signup" element={<Signup />} />
           <Route path="/dashboard" element={<Dashboard />} />
-          <Route path="/note/:id" element={<Note />} />
           <Route path="/profil/:id" element={<Profil />} />
           <Route path="/create" element={<Create />} />
           <Route path="/modify/:id" element={<Modify />} />

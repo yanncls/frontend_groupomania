@@ -110,7 +110,6 @@ export default function Modify() {
                 <img
                   src={note.imageUrl}
                   alt="img"
-                  // onChange={() => setShowImg(true)}
                 />
               ) : null}
             </div>

@@ -6,7 +6,7 @@ export default function UploadPicture({ setImageLink, setImageHasChange }) {
   // states
   const [images, setImages] = useState([]);
   const [imageURLs, setImageURLs] = useState([]);
-  const [imageChange, setImageChange] = useState(false);
+  // const [imageChange, setImageChange] = useState(false);
 
   // logique
   useEffect(() => {
@@ -26,6 +26,11 @@ export default function UploadPicture({ setImageLink, setImageHasChange }) {
 
   return (
     <>
+      {imageURLs.map((imageUrl) => (
+        <div className="picture_container">
+          <img alt="img" name="imageUrl" src={imageUrl} key={imageUrl.length} />
+        </div>
+      ))}
       <input
         type="file"
         id="file"
@@ -34,11 +39,6 @@ export default function UploadPicture({ setImageLink, setImageHasChange }) {
         accept="image/*"
         onChange={onImageChange}
       />
-      {imageURLs.map((imageUrl) => (
-        <div className="image_container">
-          <img alt="img" name="imageUrl" src={imageUrl} key={imageUrl.length} />
-        </div>
-      ))}
     </>
   );
 }

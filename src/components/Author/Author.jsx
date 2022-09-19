@@ -26,7 +26,7 @@ const Author = ({ note }) => {
     <div key={user._id}>
       <div className="author-header">
         <div className="post-profile-cropper">
-          <img src={user.picture} alt="visage" className="post-profile-pic" />
+          <img src={FaceProfile} alt="visage" className="post-profile-pic" />
         </div>
         <div className="post-author">
           <h3>

@@ -2,7 +2,6 @@ import React from "react";
 import Header from "../components/Header/index";
 import "../utils/style/Dashboard.scss";
 import Profile from "../components/Profile/Profile";
-// import Action from "../components/action_bar/Action";
 import Feed from "../components/Feed";
 import { Navigate } from "react-router-dom";
 

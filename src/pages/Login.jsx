@@ -8,7 +8,6 @@ import axios from "../api/axios";
 const LOGIN_URL = "/api/auth/login";
 
 function Login() {
-  // const { setAuth } = useContext(AuthContext);
   const userRef = useRef();
   const errRef = useRef();
 

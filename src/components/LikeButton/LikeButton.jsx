@@ -1,4 +1,4 @@
-import { useState, useEffect } from "react";
+import { useState } from "react";
 import LikeBtn from "./like.svg";
 import axios from "../../api/axios";
 import "./LikeButton.scss";
@@ -43,15 +43,6 @@ export default function LikeButton({ noteId, noteLike, usersLiked }) {
       console.log(error);
     }
   };
-
-  // useEffect(() => {
-  //   const numberOfLike = async () => {
-  //     const res = await axios(`${API_URL}/${noteId}`);
-  //     noteLike(res);
-  //     console.log("useEffect res", res);
-  //   };
-  //   numberOfLike();
-  // }, []);
 
   return (
     <div className="like_section">
