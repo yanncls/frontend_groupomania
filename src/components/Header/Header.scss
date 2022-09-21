@@ -1,8 +1,14 @@
 @use "_colors.scss";
 
-nav {
+.header {
+  display: flex;
+  justify-content: center;
   position: sticky;
   top: 0px;
+  z-index: 5;
+}
+
+nav {
   align-self: flex-start;
   height: 3rem;
   text-align: right;
@@ -10,7 +16,8 @@ nav {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  z-index: 5;
+  width: 100%;
+  max-width: 120rem;
   a {
     color: colors.$primary;
     text-decoration: none;

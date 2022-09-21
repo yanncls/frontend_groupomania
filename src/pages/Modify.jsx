@@ -20,7 +20,7 @@ export default function Modify() {
   // URLs
   const NOTES_URL = "api/notes";
   const MY_NOTE = "api/notes/search";
-  const POST_URL = "/api/notes/";
+  const POST_URL = "/api/notes";
 
   // récupérer la publication
   useEffect(() => {
@@ -38,12 +38,10 @@ export default function Modify() {
   const handleSubmit = async (e) => {
     e.preventDefault();
 
-    const userId = localStorage.getItem("userId");
     console.log("mon image", imageLink[0]);
     const formData = new FormData();
     formData.append("image", imageLink[0]);
     formData.append("description", description);
-    formData.append("userId", userId);
 
     try {
       const res = await axios(`${POST_URL}/${params.id}`, {
@@ -106,12 +104,7 @@ export default function Modify() {
               setImageLink={setImageLink}
             />
             <div className="image_container">
-              {!imageHasChange ? (
-                <img
-                  src={note.imageUrl}
-                  alt="img"
-                />
-              ) : null}
+              {!imageHasChange ? <img src={note.imageUrl} alt="img" /> : null}
             </div>
             <br />
             <button type="submit">Mettre à jour</button>

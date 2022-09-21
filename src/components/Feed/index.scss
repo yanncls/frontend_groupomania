@@ -1,8 +1,10 @@
 .post-card {
   background-color: #4e5166;
-  margin: 5px;
   border-radius: 10px;
-  width: 98%;
+  margin-top: 5px;
+  margin-bottom: 25px;
+  margin-left: 25px;
+  margin-right: 25px;
 }
 
 .post-author {
@@ -28,9 +30,9 @@
 
 .post-card-top {
   display: flex;
-  margin-left: 1rem;
   padding-top: 1rem;
-  align-items: center;
+  flex-direction: column;
+  width: 33em;
 }
 
 .post-container {
@@ -58,16 +60,16 @@
   }
   p {
     padding-bottom: 4px;
+    padding-left: 5px;
   }
 }
 
 .post-content {
-  margin: 0rem 5rem 1rem 5rem;
-  img {
-    // margin-top: 1rem;
-    width: 100%;
-    border-radius: 10px;
-  }
+  // img {
+  //   // margin-top: 1rem;
+  //   // width: 55vw;
+  //   border-radius: 10px;
+  // }
   p {
     text-align: justify;
   }
@@ -77,4 +79,15 @@
   display: flex;
   align-items: center;
   flex-direction: column;
+}
+
+.imageUrl-container {
+  display: flex;
+  justify-content: center;
+}
+
+.imageUrl {
+  width: 55vw;
+  height: auto;
+  border-radius: 1rem;
 }

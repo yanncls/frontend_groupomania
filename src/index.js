@@ -16,6 +16,7 @@ import Create from "./pages/Create";
 import Modify from "./pages/Modify";
 import "normalize.css";
 import "./utils/style/global.css";
+import "./utils/media.scss";
 import { AuthProvider } from "./context/AuthProvider";
 import HideImageContextProvider from "./context/HideImageContext";
 

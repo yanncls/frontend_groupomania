@@ -16,6 +16,15 @@ export default function AccountInfo() {
   const [isRightUser, setIsRightUser] = useState(false);
   const [user, setUser] = useState([]);
 
+  //   fetch api profil pour afficher les infos du compte
+  useEffect(() => {
+    const userProfil = async () => {
+      const res = await axios.get(`${PROFIL_URL}/${userId}`);
+      setUser(res);
+    };
+    userProfil();
+  }, []);
+
   // DATA TEXT
   const [username, setUsername] = useState("");
   const [name, setName] = useState("");
@@ -39,15 +48,6 @@ export default function AccountInfo() {
     isAuth();
   }, []);
 
-  //   fetch api profil pour afficher les infos du compte
-  useEffect(() => {
-    const userProfil = async () => {
-      const res = await axios.get(`${PROFIL_URL}/${userId}`);
-      setUser(res);
-    };
-    userProfil();
-  }, []);
-
   //   mettre à jour les information du compte
   const handleSubmit = async (e) => {
     e.preventDefault();
@@ -58,16 +58,12 @@ export default function AccountInfo() {
     formData.append("bio", bio);
     formData.append("surname", surname);
     formData.append("email", email);
-    formData.append("user", username);
-    // formData.append("userId", userId);
-    // console.log("user send", userId);
-    // console.log(formData);
+    formData.append("username", username);
 
     try {
-      const res = await axios(`${PROFIL_URL}/${userId}`, {
+      const res = await axios(PROFIL_URL, {
         method: "PUT",
         data: formData,
-        // data: { name, bio, surname, email, username },
         headers: { "Content-Type": "multipart/form-data" },
       });
       console.log("succes", res);
@@ -82,12 +78,9 @@ export default function AccountInfo() {
       {isRightUser ? (
         <div>
           <h2>Modifier mon profil</h2>
-          {/* <div className="background"> */}
-          {/* <img src={backgroundPic} alt="backgroundpng" id="background-img" /> */}
           <div className="image-cropper-top">
             <img src={user.picture} alt="profilepng" className="profile-pic" />
           </div>
-          {/* </div> */}
           <form
             action="info-profil-update"
             onSubmit={handleSubmit}
@@ -105,7 +98,7 @@ export default function AccountInfo() {
                     type="text"
                     name="user"
                     id="user"
-                    placeholder="Pseudonyme"
+                    placeholder={user.user}
                     onChange={(e) => setUsername(e.target.value)}
                   />
                 </li>
@@ -115,7 +108,7 @@ export default function AccountInfo() {
                     type="text"
                     name="prenom"
                     id="prenom"
-                    placeholder="Prénom"
+                    placeholder={user.surname}
                     onChange={(e) => setSurname(e.target.value)}
                   />
                 </li>
@@ -125,7 +118,7 @@ export default function AccountInfo() {
                     type="text"
                     name="nom"
                     id="nom"
-                    placeholder="Nom"
+                    placeholder={user.name}
                     onChange={(e) => setName(e.target.value)}
                   />
                 </li>
@@ -135,7 +128,7 @@ export default function AccountInfo() {
                     type="email"
                     name="email"
                     id="email"
-                    placeholder="Email"
+                    placeholder={user.email}
                     onChange={(e) => setEmail(e.target.value)}
                   />
                 </li>
@@ -145,7 +138,7 @@ export default function AccountInfo() {
                     type="text"
                     name="bio"
                     id="bio"
-                    placeholder="Bio"
+                    placeholder={user.bio}
                     onChange={(e) => setBio(e.target.value)}
                   />
                 </li>

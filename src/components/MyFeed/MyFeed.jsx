@@ -27,37 +27,45 @@ export default function MyFeed() {
   }, []);
 
   return (
-    <div>
-      {notes
-        .slice(0)
-        .reverse()
-        .map((note) => {
-          return (
-            <div key={note._id}>
-              <div className="post-card">
-                <div className="post-card-top">
-                  <Author note={note} />
-                </div>
-                <div className="post-container">
-                  <div className="post-content_file">
-                    <div className="post-content">
-                      <p>{note.description}</p>
-                      <img src={note.imageUrl} alt="st tropez" />
+    <>
+      {notes ? (
+        <div>
+          {notes
+            .slice(0)
+            .reverse()
+            .map((note) => {
+              return (
+                <div key={note._id}>
+                  <div className="post-card">
+                    <div className="post-card-top">
+                      <Author note={note} />
+                    </div>
+                    <div className="post-container">
+                      <div className="post-content_file">
+                        <div className="post-content">
+                          <p>{note.description}</p>
+                          <img src={note.imageUrl} alt="st tropez" />
+                        </div>
+                      </div>
+                      <div className="post-like-btn">
+                        <LikeButton
+                          noteId={note._id}
+                          noteLike={note.like}
+                          usersLiked={note.usersLiked}
+                        />
+                        <EditButton note={note} />
+                      </div>
                     </div>
                   </div>
-                  <div className="post-like-btn">
-                    <LikeButton
-                      noteId={note._id}
-                      noteLike={note.like}
-                      usersLiked={note.usersLiked}
-                    />
-                    <EditButton note={note} />
-                  </div>
                 </div>
-              </div>
-            </div>
-          );
-        })}
-    </div>
+              );
+            })}
+        </div>
+      ) : (
+        <div>
+          <h2>Pas de contenu</h2>
+        </div>
+      )}
+    </>
   );
 }

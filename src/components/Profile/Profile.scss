@@ -37,14 +37,21 @@
   overflow: hidden;
   border-radius: 50%;
   top: -3rem;
+  display: flex;
+  justify-content: center;
 }
 
 .profile-pic {
   display: inline;
   margin: 0 auto;
-  margin-left: -25%; //centers the image
   height: 100%;
   width: auto;
+}
+
+.profile-pic-little {
+  display: inline;
+  margin: 0 auto;
+  object-fit: cover;
 }
 
 .my-profile {

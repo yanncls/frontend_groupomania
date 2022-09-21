@@ -1,0 +1,40 @@
+// tablette
+@media screen and (min-device-width: 768px) and (max-device-width: 960px) {
+  .Profil-Card {
+    margin-left: 10px;
+    width: 18rem;
+  }
+  .post-card {
+    margin-bottom: 10px;
+    margin-left: 10px;
+    margin-right: 10px;
+  }
+  .post-card-top {
+    width: 22em;
+  }
+}
+
+// mobile
+@media screen and (max-device-width: 767px) {
+  body {
+    color: green;
+  }
+  .first-block {
+    flex-direction: column;
+  }
+  .Profil-Card {
+    background-color: #4e5166;
+    height: -moz-fit-content;
+    height: fit-content;
+    width: -webkit-fill-available;
+    margin-top: 0;
+    margin-left: 0px;
+    border-radius: 0px;
+    position: unset;
+    top: 53px;
+    border-radius: 0rem 0rem 1rem 1rem;
+  }
+  .Dashboard {
+    width: fit-content;
+  }
+}

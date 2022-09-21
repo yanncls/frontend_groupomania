@@ -11,13 +11,16 @@ function Dashboard() {
     return <Navigate to="/login" />;
   }
   return (
-    <div>
-      <Header />
+    <div className="main-div">
       <div className="Dashboard">
-        <div className="Profil-Card">
-          <Profile />
+        <div className="header">
+          <Header />
         </div>
-        <div className="Main-Card">
+        <div className="first-block">
+          <div className="Profil-Card">
+            <Profile />
+          </div>
+
           <div className="Feed">
             <Feed />
           </div>

@@ -34,15 +34,22 @@ const Feed = () => {
           return (
             <div key={note._id}>
               <div className="post-card">
-                <div className="post-card-top">
-                  <Author note={note} />
-                </div>
                 <div className="post-container">
                   <div className="post-content_file">
                     <div className="post-content">
-                      <p>{note.description}</p>
-                      <div>
-                        <img src={note.imageUrl} alt="imageUrl" />
+                      <div className="post-card-top">
+                        <Author note={note} />
+                        <div className="description-flex">
+                          <p>{note.description}</p>
+                        </div>
+                      </div>
+
+                      <div className="imageUrl-container">
+                        <img
+                          src={note.imageUrl}
+                          alt="imageUrl"
+                          className="imageUrl"
+                        />
                       </div>
                     </div>
                   </div>

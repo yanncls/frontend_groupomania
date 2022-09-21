@@ -35,7 +35,7 @@ const Profile = () => {
       <div className="background">
         <img src={BackgroundJpeg} alt="backgroundpng" id="background-img" />
         <div className="image-cropper-top">
-          <img src={ProfileSvg} alt="profilepng" className="profile-pic" />
+          <img src={user.picture} alt="profilepng" className="profile-pic" />
         </div>
       </div>
       <div className="attribut">

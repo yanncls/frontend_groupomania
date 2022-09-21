@@ -3,13 +3,25 @@
 .Dashboard {
   background-color: colors.$backgroundDark;
   display: flex;
+  flex-direction: column;
+  min-height: 53rem;
+}
+
+.Feed {
+  width: 80%;
+}
+
+.first-block {
+  display: flex;
+  justify-content: center;
 }
 
 .Profil-Card {
   background-color: colors.$backgroundLight;
   height: fit-content;
-  width: 25%;
-  margin: 5px;
+  width: 25rem;
+  margin-top: 5px;
+  margin-left: 25px;
   border-radius: 10px;
   position: sticky;
   top: 53px;
@@ -35,6 +47,5 @@
 .Main-Card {
   display: flex;
   flex-direction: column;
-  width: 75%;
   min-height: 750px;
 }

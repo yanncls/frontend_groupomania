@@ -1,10 +1,10 @@
 @use "_colors.scss";
-// img {
-//   .background-picture {
-//     width: -webkit-fill-available;
-//     height: 15rem;
-//   }
-// }
+img {
+  .background-picture {
+    width: -webkit-fill-available;
+    height: 15rem;
+  }
+}
 .Profil {
   background-color: colors.$backgroundDark;
   display: flex;

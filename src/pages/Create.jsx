@@ -14,7 +14,7 @@ function Create() {
 
   // initialiser la date
   const myDate = new DateObject({
-    format: "MMM/DD/YYYY HH:mm:ss",
+    format: "MMM/DD/YYYY",
   });
   console.log(myDate.date);
 

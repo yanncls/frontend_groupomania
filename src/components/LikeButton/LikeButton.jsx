@@ -2,6 +2,9 @@ import { useState } from "react";
 import LikeBtn from "./like.svg";
 import axios from "../../api/axios";
 import "./LikeButton.scss";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faHeart } from "@fortawesome/free-solid-svg-icons";
+<FontAwesomeIcon icon="fa-solid fa-heart" />;
 
 export default function LikeButton({ noteId, noteLike, usersLiked }) {
   // URL API
@@ -47,7 +50,7 @@ export default function LikeButton({ noteId, noteLike, usersLiked }) {
   return (
     <div className="like_section">
       <button onClick={handleClick}>
-        <img src={LikeBtn} alt="like" />
+        <FontAwesomeIcon icon={faHeart} className="faHeart" />
       </button>
       <p className={hasLiked ? "hasLiked" : "hasNotLiked"}>{numLikes}</p>
     </div>

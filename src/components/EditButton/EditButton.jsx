@@ -1,4 +1,5 @@
 import React from "react";
+import axios from "../../api/axios";
 import "./EditButton.scss";
 import { useState, useEffect } from "react";
 import { library } from "@fortawesome/fontawesome-svg-core";
@@ -11,23 +12,39 @@ library.add(faPen);
 
 const EditButton = (note) => {
   const navigate = useNavigate();
+
+  // Path vers l'api profil
+  const PROFIL_URL = "/api/auth/profil";
+
   // data à isoler
   const thisUser = localStorage.getItem("userId");
   const noteUser = note.note.userId;
   const noteId = note.note._id;
+
   // states
   const [valid, setValid] = useState(false);
+
+  // recupere
+  const [auth, setAuth] = useState([]);
 
   // essayer de tester le chemin sans l'id puis vérifier si
   // cela peut fonctionner
   const navigateModify = () => {
     navigate(`/modify/${noteId}`);
-    // <Link to={{ pathname: `/User/${noteId}`, state: { note: note } }} />;
   };
   // logique pour afficher le boutton edit
+  // fetch user
+  useEffect(() => {
+    const userProfil = async () => {
+      const res = await axios.get(`${PROFIL_URL}/${thisUser}`);
+      setAuth(res);
+    };
+    userProfil();
+  }, []);
+
   useEffect(() => {
     const validUser = async () => {
-      if (thisUser === noteUser) {
+      if (thisUser === noteUser || auth.isAdmin === true) {
         setValid(true);
       }
     };
@@ -39,7 +56,7 @@ const EditButton = (note) => {
       {valid ? (
         <div className="Edit_Button">
           <button onClick={navigateModify}>
-            <FontAwesomeIcon icon={faPen} />
+            <FontAwesomeIcon icon={faPen} className="faPen" />
           </button>
         </div>
       ) : null}
