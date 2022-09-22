@@ -6,7 +6,8 @@ import {
   Navigate,
   Route,
 } from "react-router-dom";
-import "../src/utils/style/index.scss";
+import { AuthProvider } from "./context/AuthProvider";
+import { ToastContainer } from "react-toastify";
 import Signup from "./pages/Signup";
 import Login from "./pages/Login";
 import Dashboard from "./pages/Dashboard";
@@ -17,11 +18,8 @@ import Modify from "./pages/Modify";
 import "normalize.css";
 import "./utils/style/global.css";
 import "./utils/media.scss";
-import { AuthProvider } from "./context/AuthProvider";
-import HideImageContextProvider from "./context/HideImageContext";
-
-// const Profil = () => <h1>Profil (Private)</h1>;
-// const Dashboard = () => <h1>Dashboard (Private)</h1>;
+import "../src/utils/style/index.scss";
+import "react-toastify/dist/ReactToastify.css";
 
 const root = ReactDOM.createRoot(document.getElementById("root"));
 root.render(
@@ -38,6 +36,7 @@ root.render(
           <Route path="/modify/:id" element={<Modify />} />
           <Route path="*" element={<Error />} />
         </Routes>
+        <ToastContainer />
       </AuthProvider>
     </Router>
   </div>

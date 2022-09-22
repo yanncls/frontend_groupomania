@@ -1,6 +1,5 @@
 import { useState, useEffect } from "react";
 import axios from "../../api/axios";
-import FaceProfile from "./visage.jpeg";
 import "./Author.scss";
 
 const Author = ({ note }) => {

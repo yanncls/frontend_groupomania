@@ -1,5 +1,3 @@
-import "../utils/style/Signup.scss";
-import logo from "../assets/logo/icon-left-font-monochrome-white.png";
 import { Link } from "react-router-dom";
 import { useRef, useState, useEffect } from "react";
 import {
@@ -9,6 +7,8 @@ import {
 } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import axios from "../api/axios";
+import logo from "../assets/logo/icon-left-font-monochrome-white.png";
+import "../utils/style/Signup.scss";
 
 function Signup() {
   // regex de validation
@@ -17,6 +17,7 @@ function Signup() {
   const EMAIL_REGEX =
     /^([a-zA-Z0-9_\-.]+)@([a-zA-Z0-9_\-.]+)\.([a-zA-Z]{2,5})$/;
 
+    // URL 
   const SIGNUP_URL = "/api/auth/signup";
 
   // reference utilisateur
@@ -43,6 +44,7 @@ function Signup() {
   const [errMsg, setErrMsg] = useState("");
   const [success, setSuccess] = useState(false);
 
+  // cibler ce que l'user modifie en input
   useEffect(() => {
     userRef.current.focus();
   }, []);

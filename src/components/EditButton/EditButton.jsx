@@ -1,13 +1,11 @@
 import React from "react";
 import axios from "../../api/axios";
-import "./EditButton.scss";
 import { useState, useEffect } from "react";
 import { library } from "@fortawesome/fontawesome-svg-core";
 import { faPen } from "@fortawesome/free-solid-svg-icons";
 import { useNavigate } from "react-router-dom";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-<FontAwesomeIcon icon="fa-regular fa-pen-to-square" />;
-
+import "./EditButton.scss";
 library.add(faPen);
 
 const EditButton = (note) => {

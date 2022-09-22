@@ -4,18 +4,18 @@ import axios from "../api/axios";
 import { useEffect } from "react";
 import { useState } from "react";
 import UploadImages from "../components/UploadImg/UploadImages";
+import { Navigate } from "react-router-dom";
+import { toast } from "react-toastify";
 
 export default function Modify() {
   const params = useParams();
-  console.log("params", params.id);
 
   // states
   const [note, setNote] = useState([]);
   const [imageLink, setImageLink] = useState("");
   const [description, setDescription] = useState("");
   const [imageHasChange, setImageHasChange] = useState(false);
-
-  const [showImg, setShowImg] = useState(false);
+  const [updateSuccess, setUpdateSuccess] = useState(false);
 
   // URLs
   const NOTES_URL = "api/notes";
@@ -50,6 +50,8 @@ export default function Modify() {
         headers: { "Content-Type": "multipart/form-data" },
       });
       console.log("succes update", res);
+      setUpdateSuccess(true);
+      toast.success("Publication modifiée avec succès 👍");
     } catch (err) {
       console.log("une erreur est survenue sur l'update", err);
     }
@@ -62,12 +64,24 @@ export default function Modify() {
     try {
       const res = await axios.delete(`${NOTES_URL}/${params.id}`);
       console.log(res);
+      setUpdateSuccess(true);
+      toast.success("Publication supprimée avec succès 👍");
     } catch (error) {
       console.log(error);
     }
   };
 
-  // afficher l'image si
+  // Retour page acceuil si succes
+  if (updateSuccess) {
+    return <Navigate to="/dashboard" />;
+  }
+
+  // Retour page d'acceuil si logout
+  const token = localStorage.getItem("token");
+  if (!token) {
+    toast.info("Au revoir");
+    return <Navigate to="/login" />;
+  }
 
   return (
     <div>

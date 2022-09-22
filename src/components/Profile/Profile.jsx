@@ -1,5 +1,4 @@
 import "./Profile.scss";
-import ProfileSvg from "./photo-man.jpeg";
 import BackgroundJpeg from "./milkyway.jpeg";
 import { Link } from "react-router-dom";
 import { useState, useEffect } from "react";

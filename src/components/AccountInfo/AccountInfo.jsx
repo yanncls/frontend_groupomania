@@ -1,7 +1,8 @@
-import axios from "../../api/axios";
 import { useEffect } from "react";
 import { useState } from "react";
 import { useParams } from "react-router-dom";
+import { toast } from "react-toastify";
+import axios from "../../api/axios";
 import UploadPicture from "../UploadImg/UploadPicture";
 
 export default function AccountInfo() {
@@ -31,7 +32,6 @@ export default function AccountInfo() {
   const [surname, setSurname] = useState("");
   const [email, setEmail] = useState("");
   const [bio, setBio] = useState("");
-
   const [update, setUpdate] = useState("");
 
   // states pictures
@@ -66,7 +66,7 @@ export default function AccountInfo() {
         data: formData,
         headers: { "Content-Type": "multipart/form-data" },
       });
-      console.log("succes", res);
+      toast.success("Vos données personnelles sont à jour 👍");
       setUpdate(res);
     } catch (error) {
       console.log("une erreur submit", error);
@@ -143,9 +143,6 @@ export default function AccountInfo() {
                   />
                 </li>
               </ul>
-              {/* <Link to="/dashboard"> */}
-
-              {/* </Link> */}
             </div>
             <button className="info-submit">Modifier</button>
           </form>

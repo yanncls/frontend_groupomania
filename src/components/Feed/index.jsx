@@ -1,9 +1,9 @@
-import "./index.scss";
 import { useState, useEffect } from "react";
 import axios from "../../api/axios";
 import Author from "../Author/Author";
 import EditButton from "../EditButton/EditButton";
 import LikeButton from "../LikeButton/LikeButton";
+import "./index.scss";
 
 const Feed = () => {
   // récupérer l'userId dans le local storage

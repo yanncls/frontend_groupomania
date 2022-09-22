@@ -1,10 +1,8 @@
 import { useState } from "react";
-import LikeBtn from "./like.svg";
-import axios from "../../api/axios";
-import "./LikeButton.scss";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faHeart } from "@fortawesome/free-solid-svg-icons";
-<FontAwesomeIcon icon="fa-solid fa-heart" />;
+import axios from "../../api/axios";
+import "./LikeButton.scss";
 
 export default function LikeButton({ noteId, noteLike, usersLiked }) {
   // URL API
@@ -18,8 +16,7 @@ export default function LikeButton({ noteId, noteLike, usersLiked }) {
   const [numLikes, setNumLikes] = useState(noteLike);
   const [hasLiked, setHasLiked] = useState(usersLiked.includes(userId));
 
-  // const hasLiked = usersLiked.includes(userId);
-
+  // logique envoie like
   const handleClick = async (e) => {
     e.preventDefault();
 
@@ -31,7 +28,6 @@ export default function LikeButton({ noteId, noteLike, usersLiked }) {
         method: "POST",
         data: { userId },
       });
-      console.log("click 2");
       console.log("response data", res);
 
       const newLike = !hasLiked;

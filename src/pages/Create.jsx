@@ -1,22 +1,25 @@
-import Header from "../components/Header/index";
-import "../utils/style/create.scss";
-import UploadImages from "../components/UploadImg/UploadImages";
 import { useState } from "react";
+import { Navigate } from "react-router-dom";
+import { toast } from "react-toastify";
 import axios from "../api/axios";
 import DateObject from "react-date-object";
+import Header from "../components/Header/index";
+import UploadImages from "../components/UploadImg/UploadImages";
+import "../utils/style/create.scss";
 
 function Create() {
+  // Url
   const POST_URL = "/api/notes/";
 
   // States
   const [description, setDescription] = useState("");
   const [imageLink, setImageLink] = useState("");
+  const [createSuccess, setCreateSuccess] = useState(false);
 
   // initialiser la date
   const myDate = new DateObject({
     format: "MMM/DD/YYYY",
   });
-  console.log(myDate.date);
 
   // Logiques
   // capture du submit
@@ -25,6 +28,8 @@ function Create() {
 
     const userId = localStorage.getItem("userId");
     console.log(imageLink[0]);
+
+    // creation du formData à envoyer
     const formData = new FormData();
     formData.append("image", imageLink[0]);
     formData.append("description", description);
@@ -38,10 +43,24 @@ function Create() {
         headers: { "Content-Type": "multipart/form-data" },
       });
       console.log(res);
+      setCreateSuccess(true);
+      toast.success("Publication crée avec succès 👍");
     } catch (err) {
       console.log("une erreur est survenue", err);
     }
   };
+
+  // redirection vers homepage si succes
+  if (createSuccess) {
+    return <Navigate to="/dashboard" />;
+  }
+
+  // redirection vers login page si logout
+  const token = localStorage.getItem("token");
+  if (!token) {
+    toast.info("Au revoir");
+    return <Navigate to="/login" />;
+  }
 
   return (
     <div>
