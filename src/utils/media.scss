@@ -16,8 +16,8 @@
 
 // mobile
 @media screen and (max-device-width: 767px) {
-  body {
-    color: green;
+  .header {
+    position: initial;
   }
   .first-block {
     flex-direction: column;
@@ -36,5 +36,45 @@
   }
   .Dashboard {
     width: fit-content;
+    min-height: 205rem;
+  }
+  .Feed {
+    width: auto;
+  }
+  .nav {
+    width: 83%;
+  }
+  .first-block {
+    padding-left: 40px;
+    padding-right: 40px;
+  }
+  .post-card {
+    margin-left: 0px;
+    margin-right: 0px;
+  }
+  nav {
+    width: 83%;
+  }
+  h5 {
+    font-size: large;
+    margin-top: 5px;
+    margin-bottom: 2px;
+  }
+  h3 {
+    margin: 0px;
+  }
+  .post-card {
+    margin-top: 10px;
+    margin-bottom: 0px;
+  }
+  .imageUrl {
+    width: 33rem;
+  }
+  .attribut h4 {
+    margin-top: 7px;
+  }
+  .post-card-top {
+    padding-right: 50px;
+    padding-left: 50px;
   }
 }
