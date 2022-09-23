@@ -90,4 +90,13 @@
       border: solid red 1px;
     }
   }
+  .picture_container {
+    img {
+      width: 100px;
+      height: 100px;
+      top: 4rem;
+      position: absolute;
+      border-radius: 10rem;
+    }
+  }
 }

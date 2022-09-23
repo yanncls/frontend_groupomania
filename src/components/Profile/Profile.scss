@@ -73,4 +73,11 @@ ul {
   flex-direction: column;
   margin-right: 34px;
   align-items: center;
+  li {
+    display: flex;
+    flex-direction: column;
+  }
+}
+.details {
+  width: 15rem;
 }

@@ -2,7 +2,7 @@ import ProfileLogo from "../action_bar/photo-man.jpeg";
 import ArticleLogo from "../action_bar/thread.svg";
 import ImageLogo from "../action_bar/image.svg";
 import VideoLogo from "../action_bar/video.svg";
-import "../action_bar/Action.scss";
+import "./Action.scss";
 
 // Pour mettre une barre de publication comme sur facebook
 

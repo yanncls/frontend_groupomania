@@ -79,7 +79,10 @@ export default function AccountInfo() {
         <div className="modify-card">
           <h2>Modifier mon profil</h2>
           <div className="image-cropper-top_modify">
-            <img src={user.picture} alt="profilepng" className="profile-pic" />
+            {!imageHasChange ? (
+              <img src={user.picture} alt="profilepng" />
+            ) : null}
+            {/* <img src={user.picture} alt="profilepng" className="profile-pic" /> */}
           </div>
           <form
             action="info-profil-update"
@@ -93,7 +96,7 @@ export default function AccountInfo() {
               />
               <ul>
                 <li>
-                  {/* <label htmlFor="user">Pseudo</label> */}
+                  <label htmlFor="user">Pseudo</label>
                   <input
                     type="text"
                     name="user"
@@ -103,7 +106,7 @@ export default function AccountInfo() {
                   />
                 </li>
                 <li>
-                  {/* <label htmlFor="prenom">Prénom</label> */}
+                  <label htmlFor="prenom">Prénom</label>
                   <input
                     type="text"
                     name="prenom"
@@ -113,7 +116,7 @@ export default function AccountInfo() {
                   />
                 </li>
                 <li>
-                  {/* <label htmlFor="nom">Nom</label> */}
+                  <label htmlFor="nom">Nom</label>
                   <input
                     type="text"
                     name="nom"
@@ -123,7 +126,7 @@ export default function AccountInfo() {
                   />
                 </li>
                 <li>
-                  {/* <label htmlFor="email">Email</label> */}
+                  <label htmlFor="email">Email</label>
                   <input
                     type="email"
                     name="email"
@@ -133,7 +136,7 @@ export default function AccountInfo() {
                   />
                 </li>
                 <li>
-                  {/* <label htmlFor="bio">Bio</label> */}
+                  <label htmlFor="bio">Bio</label>
                   <input
                     type="text"
                     name="bio"
