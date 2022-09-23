@@ -63,7 +63,7 @@ function Create() {
   }
 
   return (
-    <div>
+    <div className="post-page">
       <div>
         <Header />
       </div>

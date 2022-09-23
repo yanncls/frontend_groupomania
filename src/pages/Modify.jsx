@@ -84,7 +84,7 @@ export default function Modify() {
   }
 
   return (
-    <div>
+    <div className="post-page">
       <div>
         <Header />
       </div>

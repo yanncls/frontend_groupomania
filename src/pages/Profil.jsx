@@ -27,7 +27,9 @@ function Profil() {
           <AccountInfo setThisUser={setThisUser} />
         </div>
         <div className="Main-Card">
-          <div className="Feed">{/* <MyFeed /> */}</div>
+          <div className="Feed">
+            <MyFeed />
+          </div>
         </div>
       </div>
     </div>

@@ -59,3 +59,24 @@
     border-radius: 2rem;
   }
 }
+
+.Create_Form {
+  button {
+    border: none;
+    border-radius: 1rem;
+    color: white;
+    font-weight: bold;
+    background-color: #fd2d01;
+    margin-bottom: 1rem;
+  }
+}
+.DeleteButton {
+  button {
+    margin-bottom: 1rem;
+    border: none;
+    border-radius: 1rem;
+    background-color: #fd2d01;
+    color: white;
+    font-weight: bold;
+  }
+}
