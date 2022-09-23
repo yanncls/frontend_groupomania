@@ -20,13 +20,16 @@ function Profil() {
   console.log(thisUser);
 
   return (
-    <div>
-      <Header />
+    <div className="main-div">
       <div className="Dashboard">
-        <div className="Profil-Card">
-          <AccountInfo setThisUser={setThisUser} />
+        <div className="header">
+          <Header />
         </div>
-        <div className="Main-Card">
+        <div className="first-block">
+          <div className="Profil-Card">
+            <AccountInfo setThisUser={setThisUser} />
+          </div>
+
           <div className="Feed">
             <MyFeed />
           </div>

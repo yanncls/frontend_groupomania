@@ -76,9 +76,9 @@ export default function AccountInfo() {
   return (
     <>
       {isRightUser ? (
-        <div>
+        <div className="modify-card">
           <h2>Modifier mon profil</h2>
-          <div className="image-cropper-top">
+          <div className="image-cropper-top_modify">
             <img src={user.picture} alt="profilepng" className="profile-pic" />
           </div>
           <form

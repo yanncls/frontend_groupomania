@@ -55,3 +55,19 @@ img {
 .form-info {
   align-items: center;
 }
+
+.modify-card {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+.image-cropper-top_modify {
+  width: 100px;
+  height: 100px;
+  position: relative;
+  overflow: hidden;
+  border-radius: 50%;
+  display: flex;
+  justify-content: center;
+}
