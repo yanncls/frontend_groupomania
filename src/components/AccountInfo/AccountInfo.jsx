@@ -26,9 +26,6 @@ export default function AccountInfo() {
     userProfil();
   }, []);
 
-  // DATA TEXT
-  const [update, setUpdate] = useState("");
-
   // states pictures
   const [imageLink, setImageLink] = useState("");
   const [imageHasChange, setImageHasChange] = useState(false);
@@ -65,7 +62,7 @@ export default function AccountInfo() {
         headers: { "Content-Type": "multipart/form-data" },
       });
       toast.success("Vos données personnelles sont à jour 👍");
-      setUpdate(res);
+      console.log(res);
     } catch (error) {
       console.log("une erreur submit", error);
     }
