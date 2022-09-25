@@ -13,7 +13,6 @@ export default function Modify() {
   // states
   const [note, setNote] = useState([]);
   const [imageLink, setImageLink] = useState("");
-  const [description, setDescription] = useState("");
   const [imageHasChange, setImageHasChange] = useState(false);
   const [updateSuccess, setUpdateSuccess] = useState(false);
 
@@ -38,10 +37,12 @@ export default function Modify() {
   const handleSubmit = async (e) => {
     e.preventDefault();
 
-    console.log("mon image", imageLink[0]);
     const formData = new FormData();
-    formData.append("image", imageLink[0]);
-    formData.append("description", description);
+    console.log("mon image", imageLink[0]);
+    if (imageLink[0]) {
+      formData.append("image", imageLink[0]);
+    }
+    formData.append("description", note.description);
 
     try {
       const res = await axios(`${POST_URL}/${params.id}`, {
@@ -109,8 +110,9 @@ export default function Modify() {
               id="description"
               maxLength="140"
               placeholder={note.description}
-              onChange={(e) => setDescription(e.target.value)}
-              value={description}
+              onChange={(e) =>
+                setNote({ ...note, description: e.target.value })
+              }
             />
             <br />
             <UploadImages

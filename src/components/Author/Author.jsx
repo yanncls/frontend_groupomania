@@ -26,7 +26,7 @@ const Author = ({ note }) => {
       <div className="author-header">
         <div className="post-profile-cropper">
           <img
-            src={user.picture}
+            src={user.picture ?? "/default-picture.png"}
             alt="visage"
             className="post-profile-pic-little"
             height={"50px"}

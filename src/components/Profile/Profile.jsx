@@ -1,5 +1,5 @@
 import "./Profile.scss";
-import BackgroundJpeg from "./milkyway.jpeg";
+// import BackgroundJpeg from "./milkyway.jpeg";
 import { Link } from "react-router-dom";
 import { useState, useEffect } from "react";
 import axios from "../../api/axios";
@@ -32,9 +32,13 @@ const Profile = () => {
   return (
     <div>
       <div className="background">
-        <img src={BackgroundJpeg} alt="backgroundpng" id="background-img" />
+        <img src="/milkyway.jpeg" alt="backgroundpng" id="background-img" />
         <div className="image-cropper-top">
-          <img src={user.picture} alt="profilepng" className="profile-pic" />
+          <img
+            src={user.picture ?? "/default-picture.png"}
+            alt="profilepng"
+            className="profile-pic"
+          />
         </div>
       </div>
       <div className="attribut">

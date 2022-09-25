@@ -42,10 +42,11 @@
 }
 
 .profile-pic {
+  width: 100%;
+  object-fit: cover;
   display: inline;
   margin: 0 auto;
   height: 100%;
-  width: auto;
 }
 
 .profile-pic-little {

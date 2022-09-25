@@ -27,11 +27,6 @@ export default function AccountInfo() {
   }, []);
 
   // DATA TEXT
-  const [username, setUsername] = useState("");
-  const [name, setName] = useState("");
-  const [surname, setSurname] = useState("");
-  const [email, setEmail] = useState("");
-  const [bio, setBio] = useState("");
   const [update, setUpdate] = useState("");
 
   // states pictures
@@ -53,12 +48,15 @@ export default function AccountInfo() {
     e.preventDefault();
 
     const formData = new FormData();
-    formData.append("image", imageLink[0]);
-    formData.append("name", name);
-    formData.append("bio", bio);
-    formData.append("surname", surname);
-    formData.append("email", email);
-    formData.append("username", username);
+    console.log("image", imageLink[0]);
+    if (imageLink[0]) {
+      formData.append("image", imageLink[0]);
+    }
+    formData.append("name", user.name);
+    formData.append("bio", user.bio);
+    formData.append("surname", user.surname);
+    formData.append("email", user.email);
+    formData.append("user", user.user);
 
     try {
       const res = await axios(PROFIL_URL, {
@@ -80,7 +78,10 @@ export default function AccountInfo() {
           <h2>Modifier mon profil</h2>
           <div className="image-cropper-top_modify">
             {!imageHasChange ? (
-              <img src={user.picture} alt="profilepng" />
+              <img
+                src={user.picture ?? "/default-picture.png"}
+                alt="profilepng"
+              />
             ) : null}
             {/* <img src={user.picture} alt="profilepng" className="profile-pic" /> */}
           </div>
@@ -102,7 +103,7 @@ export default function AccountInfo() {
                     name="user"
                     id="user"
                     placeholder={user.user}
-                    onChange={(e) => setUsername(e.target.value)}
+                    onChange={(e) => setUser({ ...user, user: e.target.value })}
                   />
                 </li>
                 <li>
@@ -112,7 +113,9 @@ export default function AccountInfo() {
                     name="prenom"
                     id="prenom"
                     placeholder={user.surname}
-                    onChange={(e) => setSurname(e.target.value)}
+                    onChange={(e) =>
+                      setUser({ ...user, surname: e.target.value })
+                    }
                   />
                 </li>
                 <li>
@@ -122,7 +125,7 @@ export default function AccountInfo() {
                     name="nom"
                     id="nom"
                     placeholder={user.name}
-                    onChange={(e) => setName(e.target.value)}
+                    onChange={(e) => setUser({ ...user, name: e.target.value })}
                   />
                 </li>
                 <li>
@@ -132,7 +135,9 @@ export default function AccountInfo() {
                     name="email"
                     id="email"
                     placeholder={user.email}
-                    onChange={(e) => setEmail(e.target.value)}
+                    onChange={(e) =>
+                      setUser({ ...user, email: e.target.value })
+                    }
                   />
                 </li>
                 <li>
@@ -142,7 +147,7 @@ export default function AccountInfo() {
                     name="bio"
                     id="bio"
                     placeholder={user.bio}
-                    onChange={(e) => setBio(e.target.value)}
+                    onChange={(e) => setUser({ ...user, bio: e.target.value })}
                   />
                 </li>
               </ul>
