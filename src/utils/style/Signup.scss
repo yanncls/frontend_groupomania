@@ -57,7 +57,9 @@ form {
 
 .signup-btn {
   border-radius: 10px;
-  background-color: colors.$secondary;
+  background-color: colors.$primary;
+  color: white;
+  font-weight: 800;
   width: 12rem;
 }
 
